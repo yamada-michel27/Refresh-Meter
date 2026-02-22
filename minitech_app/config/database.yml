@@ -12,21 +12,23 @@
 default: &default
   adapter: mysql2
   encoding: utf8mb4
-  max_connections: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
-  password:
-  host: <%= ENV.fetch("DB_HOST") { "127.0.0.1" } %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: <%= ENV.fetch("DB_HOST", "db") %>
+  port: <%= ENV.fetch("DB_PORT", 3306) %>
+  username: <%= ENV.fetch("DB_USERNAME", "minitech") %>
+  password: <%= ENV.fetch("DB_PASSWORD", "password") %>
+  
 
 development:
   <<: *default
-  database: minitech_app_development
+  database: minitech_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: minitech_app_test
+  database: minitech_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -57,8 +59,7 @@ test:
 production:
   primary: &primary_production
     <<: *default
-    database: minitech_app_production
-    username: minitech_app
+    database: minitech_production
     password: <%= ENV["MINITECH_APP_DATABASE_PASSWORD"] %>
   cache:
     <<: *primary_production
