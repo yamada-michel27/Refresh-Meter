@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fatigue: 1
+  stress: 1
+  sleep_hours: 9.99
+  daytime_outings: 1
+  work_difficulty: 1
+  mood: MyString
+  last_sauna_data: 2026-05-04
+  last_move_date: 2026-05-04
+  last_karaoke_date: 2026-05-04
+  recorded_at: 2026-05-04 10:33:22
+
+two:
+  fatigue: 1
+  stress: 1
+  sleep_hours: 9.99
+  daytime_outings: 1
+  work_difficulty: 1
+  mood: MyString
+  last_sauna_data: 2026-05-04
+  last_move_date: 2026-05-04
+  last_karaoke_date: 2026-05-04
+  recorded_at: 2026-05-04 10:33:22
