@@ -1,7 +1,7 @@
 services:
   app:
     build: .
-    working_dir: /app/minitech_app
+    working_dir: /app/refresh_meter_app
     volumes:
       - .:/app
       - bundle-data:/usr/local/bundle
@@ -14,8 +14,7 @@ services:
     environment:
       DB_HOST: db
       DB_PORT: 3306
-      DB_USERNAME: minitech
-      DB_PASSWORD: password
+      DATABASE_URL: mysql2://minitech:password@db:3306/minitech_development
     
   db:
     build:
